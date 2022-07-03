@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">USBKill</string>
+    <string name="action">action*</string>
+    <string name="receiver">receiver</string>
+    <string name="authentication_code">authentication code</string>
+    <string name="service_notification_title">USB guard</string>
+    <string name="notification_channel_default_name">Default</string>
+</resources>
