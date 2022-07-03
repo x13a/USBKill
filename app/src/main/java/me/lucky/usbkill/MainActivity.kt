@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             action.editText?.setText(prefs.action)
             receiver.editText?.setText(prefs.receiver)
-            authenticationCode.editText?.setText(prefs.authenticationCode)
+            secret.editText?.setText(prefs.secret)
             toggle.isChecked = prefs.isEnabled
         }
     }
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
             receiver.editText?.doAfterTextChanged {
                 prefs.receiver = it?.toString() ?: ""
             }
-            authenticationCode.editText?.doAfterTextChanged {
-                prefs.authenticationCode = it?.toString() ?: ""
+            secret.editText?.doAfterTextChanged {
+                prefs.secret = it?.toString() ?: ""
             }
             toggle.setOnCheckedChangeListener { _, isChecked ->
                 prefs.isEnabled = isChecked

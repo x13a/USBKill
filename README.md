@@ -30,7 +30,7 @@ When found, it will send a broadcast message.
 
 * action: `me.lucky.wasted.action.TRIGGER`
 * receiver: `me.lucky.wasted/.TriggerReceiver`
-* authentication code: the code from Wasted
+* secret: the code from Wasted
 
 Do not forget to activate the `Broadcast` trigger in Wasted.
 

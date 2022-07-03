@@ -10,7 +10,7 @@ class Preferences(ctx: Context) {
         private const val ENABLED = "enabled"
         private const val ACTION = "action"
         private const val RECEIVER = "receiver"
-        private const val AUTHENTICATION_CODE = "authentication_code"
+        private const val SECRET = "secret"
 
         private const val FILE_NAME = "sec_shared_prefs"
     }
@@ -36,7 +36,7 @@ class Preferences(ctx: Context) {
         get() = prefs.getString(RECEIVER, "") ?: ""
         set(value) = prefs.edit { putString(RECEIVER, value) }
 
-    var authenticationCode: String
-        get() = prefs.getString(AUTHENTICATION_CODE, "") ?: ""
-        set(value) = prefs.edit { putString(AUTHENTICATION_CODE, value) }
+    var secret: String
+        get() = prefs.getString(SECRET, "") ?: ""
+        set(value) = prefs.edit { putString(SECRET, value) }
 }

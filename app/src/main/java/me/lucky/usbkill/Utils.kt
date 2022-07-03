@@ -5,7 +5,7 @@ import android.content.Intent
 
 class Utils(private val ctx: Context) {
     companion object {
-        private const val KEY = "CODE"
+        private const val KEY = "code"
     }
 
     fun sendBroadcast(prefs: Preferences) {
@@ -23,8 +23,8 @@ class Utils(private val ctx: Context) {
                     )
             }
             addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
-            val code = prefs.authenticationCode
-            if (code.isNotEmpty()) putExtra(KEY, code)
+            val secret = prefs.secret
+            if (secret.isNotEmpty()) putExtra(KEY, secret)
         })
     }
 }

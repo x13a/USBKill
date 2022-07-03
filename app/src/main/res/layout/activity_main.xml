@@ -55,8 +55,8 @@
                 android:layout_marginVertical="5dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/authenticationCode"
-                android:hint="@string/authentication_code"
+                android:id="@+id/secret"
+                android:hint="@string/secret"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
