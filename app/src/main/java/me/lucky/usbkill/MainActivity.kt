@@ -2,6 +2,7 @@ package me.lucky.usbkill
 
 import android.content.ComponentName
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,11 @@ import me.lucky.usbkill.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefs: Preferences
+    private lateinit var prefsdb: Preferences
+
+    private val prefsListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+        prefs.copyTo(prefsdb, key)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +28,20 @@ class MainActivity : AppCompatActivity() {
         setup()
     }
 
+    override fun onStart() {
+        super.onStart()
+        prefs.registerListener(prefsListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        prefs.unregisterListener(prefsListener)
+    }
+
     private fun init() {
         prefs = Preferences(this)
+        prefsdb = Preferences(this, encrypted = false)
+        prefs.copyTo(prefsdb)
         NotificationManager(this).createNotificationChannels()
         binding.apply {
             action.editText?.setText(prefs.action)

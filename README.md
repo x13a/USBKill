@@ -23,8 +23,10 @@ USB connection trigger.
      width="30%" 
      height="30%">
 
-Tiny app to listen for USB connection events **while the device is locked**.  
+Tiny app to listen for USB connection events while the device is locked.  
 When found, it will send a broadcast message.
+
+It must not trigger on charger. Only on device and accessory.
 
 ## Wasted
 

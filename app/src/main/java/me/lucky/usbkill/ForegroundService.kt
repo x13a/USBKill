@@ -60,7 +60,7 @@ class ForegroundService : Service() {
 
         override fun onReceive(context: Context?, intent: Intent?) {
             if (intent?.action != ACTION_USB_STATE) return
-            val prefs = Preferences(context ?: return)
+            val prefs = Preferences.new(context ?: return)
             if (!prefs.isEnabled ||
                 !context.getSystemService(KeyguardManager::class.java).isDeviceLocked) return
             val extras = intent.extras ?: return

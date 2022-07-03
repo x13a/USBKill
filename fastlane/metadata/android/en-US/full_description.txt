@@ -1,6 +1,8 @@
 Tiny app to listen for USB connection events while the device is locked.
 When found, it will send a broadcast message.
 
+It must not trigger on charger. Only on device and accessory.
+
 Wasted:
 * action: "me.lucky.wasted.action.TRIGGER"
 * receiver: "me.lucky.wasted/.TriggerReceiver"
